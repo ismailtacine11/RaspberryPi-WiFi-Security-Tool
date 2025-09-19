@@ -1,0 +1,14 @@
+[Unit]
+Description=Virtual Access Point Service for wlan0_1
+After=network.target
+Requires=wlan1-monitor.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/set_wlan0_1_ap.sh
+RemainAfterExit=yes
+ExecStop=/usr/local/bin/stop_wlan0_1_ap.sh
+
+[Install]
+WantedBy=multi-user.target
+

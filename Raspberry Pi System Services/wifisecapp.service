@@ -1,0 +1,15 @@
+[Unit]
+Description=Wi‑Fi Security Assessment Tool
+After=wlan1-monitor.service virtual-ap.service
+Requires=wlan1-monitor.service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ismail/wifi-security-tool/scripts/Main.py
+WorkingDirectory=/home/ismail/wifi-security-tool/scripts
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
